@@ -1,0 +1,54 @@
+name: Report
+description: Create an issue
+
+body:
+  - type: input
+    id: motherboard
+    attributes:
+      label: "Motherboard model"
+      description: Enter the exact model of your motherboard
+    validations:
+      required: true
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      multiple: false
+      options:
+        - Select one
+        - ver 5.03.1115
+        - ver 5.04.1144
+        - ver 5.05.01.0002
+    validations:
+      required: true
+
+  - type: textarea
+    id: command_type
+    attributes:
+      label: Command type
+      description: "Enter the command/attach the script used when the error occurred"
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log file
+      description: "Attach the generated log file/Provide a screenshot of **cmd**. The log file can't be blank"
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Possible solution"
+      description: "Not obligatory, but could suggest a fix for the error message"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value:
+        "Before posting the issue go through the steps you've written down to make
+        sure the steps provided are detailed and clear."
