@@ -1,0 +1,49 @@
+name: Create release
+run-name: Create release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version of the program to build. This will be used for the tag and release name."
+        required: true
+
+      pre-release:
+        description: "Pre-release"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12.3
+
+      - name: Install pyinstaller
+        run: python -m pip install pyinstaller
+
+      - name: Install dependencies
+        run: python -m pip install requests
+
+      - name: Build
+        run: pyinstaller --onefile DL_SCEWIN.py
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ inputs.version }}
+          name: ${{ inputs.version }}
+          prerelease: ${{ inputs.pre-release }}
+          artifacts: dist/DL_SCEWIN.exe
+          generateReleaseNotes: true
