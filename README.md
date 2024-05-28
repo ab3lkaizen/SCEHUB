@@ -206,6 +206,6 @@ To access this setting, you need to mod your BIOS with [UEFI Editor](https://bor
 
 ## Issues
 
-Additional error messages or possible non-working solutions should be reported in the [issue tracker](https://github.com/ab3lkaizen/SCEWIN-fixes/issues).
+Additional error messages or possible non-working solutions should be reported in the [issue tracker](https://github.com/ab3lkaizen/SCEHUB/issues).
 
 Complete the appropriate issue template. Consider whether your problem is covered by an existing issue; if so, follow the discussion there. Avoid commenting on existing recurring issues, as such comments do not contribute to the discussion of the issue and may be treated as spam.
