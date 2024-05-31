@@ -1,4 +1,5 @@
 import contextlib
+import ctypes
 import glob
 import logging
 import os
@@ -8,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import traceback
 import zipfile
 
 import requests
@@ -86,7 +88,7 @@ def download_scripts(output_path: str, max_retries: int = 3) -> int:
     return 0
 
 
-def main() -> int:
+def run_main() -> int:
     logging.basicConfig(
         format="[%(name)s] %(levelname)s: %(message)s", level=logging.INFO
     )
@@ -194,5 +196,26 @@ def main() -> int:
     return 0
 
 
+def main() -> None:
+    exit_code = 0
+
+    try:
+        exit_code = run_main()  # call the main function
+    except KeyboardInterrupt:
+        sys.exit(1)
+    except Exception:
+        print(traceback.format_exc())
+        exit_code = 1
+    finally:
+        kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+        process_array = (ctypes.c_uint * 1)()
+        num_processes = kernel32.GetConsoleProcessList(process_array, 1)
+
+        # only pause if script was run by double-clicking
+        if num_processes < 3:
+            input("press enter to exit")
+
+        sys.exit(exit_code)
+
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
