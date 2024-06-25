@@ -103,7 +103,7 @@ def run_main() -> int:
     extract_path = os.path.join(temp_dir, "MSI-Center")
 
     response = requests.get(
-        "https://download.msi.com/uti_exe/gaming-gear/MSI-Center.zip",
+        "https://download.msi.com/uti_exe/desktop/MSI-Center.zip",
         timeout=5,
     )
 
@@ -216,6 +216,7 @@ def main() -> None:
             input("press enter to exit")
 
         sys.exit(exit_code)
+
 
 if __name__ == "__main__":
     main()
