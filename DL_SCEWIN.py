@@ -203,7 +203,8 @@ def main() -> NoReturn:
     try:
         exit_code = run_main()  # call the main function
     except KeyboardInterrupt:
-        sys.exit(1)
+        exit_code = 1
+        sys.exit(exit_code)
     except Exception:
         print(traceback.format_exc())
         exit_code = 1
