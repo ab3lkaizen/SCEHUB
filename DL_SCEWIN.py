@@ -11,6 +11,7 @@ import tempfile
 import time
 import traceback
 import zipfile
+from typing import NoReturn
 
 import requests
 
@@ -196,7 +197,7 @@ def run_main() -> int:
     return 0
 
 
-def main() -> None:
+def main() -> NoReturn:
     exit_code = 0
 
     try:
