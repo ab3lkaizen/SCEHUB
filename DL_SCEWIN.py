@@ -112,7 +112,9 @@ def run_main() -> int:
     with open(msi_center_zip, "wb") as file:
         file.write(response.content)
 
-    os.makedirs(extract_path, exist_ok=True)
+    # create working directory
+    if not os.path.exists(extract_path):
+        os.mkdir(extract_path)
 
     with zipfile.ZipFile(msi_center_zip, "r") as file:
         file.extractall(extract_path)
