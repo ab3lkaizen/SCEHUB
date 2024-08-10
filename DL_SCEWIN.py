@@ -143,7 +143,7 @@ def run_main() -> int:
 
     msi_center_version = msi_center_ver.group(1)
 
-    subprocess.call(
+    subprocess.run(
         ["innoextract", msi_center_installer[-1], "--output-dir", extract_path],
     )
 
@@ -166,7 +166,7 @@ def run_main() -> int:
     with zipfile.ZipFile(os.path.join(extract_path, appx_file_name), "r") as file:
         file.extract(msi_center_sdk_path, extract_path)
 
-    subprocess.call(
+    subprocess.run(
         [
             "innoextract",
             os.path.join(extract_path, msi_center_sdk_path),
@@ -185,7 +185,7 @@ def run_main() -> int:
         logger.error("Engine Lib installer not found")
         return 1
 
-    subprocess.call(
+    subprocess.run(
         ["innoextract", engine_lib_installer[-1], "--output-dir", extract_path],
     )
 
