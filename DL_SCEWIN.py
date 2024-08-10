@@ -44,6 +44,9 @@ def download_innoextract(output_path: str, max_retries: int = 3) -> int:
                     with zipfile.ZipFile(file_path, "r") as file:
                         file.extract("innoextract.exe", output_path)
 
+                    # remove downloaded .zip file
+                    os.remove(file_path)
+
             return 0  # indicate success
 
         except (requests.RequestException, zipfile.BadZipFile) as e:
@@ -204,6 +207,18 @@ def run_main() -> int:
 
     if not os.path.exists(os.path.join(current_dir, "SCEWIN")):
         shutil.move(scewin_path, ".")
+
+    # clear working environment
+    innoextract_path = os.path.join(current_dir, "innoextract.exe")
+    try:
+        with contextlib.suppress(FileNotFoundError):
+            os.remove(innoextract_path)
+        with contextlib.suppress(FileNotFoundError):
+            os.remove(msi_center_zip)
+        with contextlib.suppress(FileNotFoundError):
+            shutil.rmtree(extract_path)
+    except Exception as e:
+        logger.warning(f"Failed to fully clear working environment: {e}")
 
     return 0
 
