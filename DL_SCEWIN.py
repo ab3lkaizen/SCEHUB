@@ -119,6 +119,9 @@ def run_main() -> int:
 
     msi_center_installer = glob.glob(os.path.join(extract_path, "MSI Center_*.exe"))
 
+    # sort by file date in ascending order
+    msi_center_installer = sorted(msi_center_installer, key=os.path.getatime)
+
     if not msi_center_installer:
         logger.error("MSI Center executable installer not found")
         return 1
@@ -126,7 +129,7 @@ def run_main() -> int:
     # get version from file name
     msi_center_ver = re.search(
         r"_([\d.]+)\.exe$",
-        os.path.basename(msi_center_installer[0]),
+        os.path.basename(msi_center_installer[-1]),
     )
 
     if not msi_center_ver:
@@ -136,10 +139,13 @@ def run_main() -> int:
     msi_center_version = msi_center_ver.group(1)
 
     subprocess.call(
-        ["innoextract", msi_center_installer[0], "--output-dir", extract_path],
+        ["innoextract", msi_center_installer[-1], "--output-dir", extract_path],
     )
 
     appxbundle = glob.glob(os.path.join(extract_path, "app", "*.appxbundle"))
+
+    # sort by file in ascending order
+    appxbundle = sorted(appxbundle, key=os.path.getatime)
 
     if not appxbundle:
         logger.error("Appx bundle file not found")
@@ -147,7 +153,7 @@ def run_main() -> int:
 
     appx_file_name = f"MSI%20Center_{msi_center_version}_x64.appx"
 
-    with zipfile.ZipFile(appxbundle[0], "r") as file:
+    with zipfile.ZipFile(appxbundle[-1], "r") as file:
         file.extract(appx_file_name, extract_path)
 
     msi_center_sdk_path = "DCv2/Package/MSI%20Center%20SDK.exe"
@@ -168,17 +174,20 @@ def run_main() -> int:
 
     engine_lib_installer = glob.glob(os.path.join(prepackage_path, "Engine Lib_*.exe"))
 
+    engine_lib_installer = sorted(engine_lib_installer, key=os.path.getatime)
+
     if not engine_lib_installer:
         logger.error("Engine Lib installer not found")
         return 1
 
     subprocess.call(
-        ["innoextract", engine_lib_installer[0], "--output-dir", extract_path],
+        ["innoextract", engine_lib_installer[-1], "--output-dir", extract_path],
     )
 
     scewin_path = os.path.join(extract_path, "app", "Lib", "SCEWIN")
 
     scewin_version_folder = glob.glob(os.path.join(scewin_path, "*", ""))
+
     if not scewin_version_folder:
         logger.error("SCEWIN version folder not found")
         return 1
@@ -186,10 +195,10 @@ def run_main() -> int:
     # remove residual files
     for file in ("BIOSData.db", "BIOSData.txt", "SCEWIN.bat"):
         with contextlib.suppress(FileNotFoundError):
-            os.remove(os.path.join(scewin_version_folder[0], file))
+            os.remove(os.path.join(scewin_version_folder[-1], file))
 
     # download scripts to SCEWIN version folder
-    download_scripts(scewin_version_folder[0])
+    download_scripts(scewin_version_folder[-1])
 
     if not os.path.exists(os.path.join(current_dir, "SCEWIN")):
         shutil.move(scewin_path, ".")
