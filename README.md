@@ -1,6 +1,6 @@
 # SCEWIN / AMISCE
 
-AMISCE is a tool to modify BIOS NVRAM variables including options that are not visible through UEFI.
+AMISCE is a tool to modify BIOS NVRAM variables including options that are not visible through UEFI. As far as I know, it is exclusively shipped with MSI Center, which is the only official source. This repository was created to provide the SCEWIN binaries without requiring the installation of MSI bloatware, and to offer solutions for various error messages.
 
 ## Disclaimer
 
