@@ -16,13 +16,7 @@ This project is NOT owned, supported or endorsed by [American Megatrends (AMI)](
 
 ## Solutions for various error messages
 
-To determine the error message, attach the following argument to your command:
-
-```bat
-2> log-file.txt
-```
-
-A ``log-file.txt`` will be generated in the same directory as ``SCEWIN_64.exe`` is located, containing the error messages (if any).
+To determine the error message, a ``log-file.txt`` is generated while running either ``Export.bat`` or ``Import.bat``, containing the output messages. The solutions for error messages can be found below.
 
 The error codes can be divided into 3 categories:
 
