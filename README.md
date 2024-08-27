@@ -6,6 +6,14 @@ AMISCE is a tool to modify BIOS NVRAM variables including options that are not v
 
 This project is NOT owned, supported or endorsed by [American Megatrends (AMI)](https://www.ami.com). Improper use could cause system instability. Use at your own risk.
 
+## Usage
+
+1. Run the ``Export.bat`` script to export NVRAM setting values to ``nvram.txt``
+
+2. Depending on the type of variable, move the ``*`` to the desired option or change the value
+
+3. Run the ``Import.bat`` script to write the configuration in ``nvram.txt`` to NVRAM
+
 ## Solutions for various error messages
 
 To determine the error message, attach the following argument to your command:
