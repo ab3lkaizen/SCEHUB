@@ -8,15 +8,15 @@ This project is NOT owned, supported or endorsed by [American Megatrends (AMI)](
 
 ## Usage
 
-1. Run the ``Export.bat`` script to export NVRAM setting values to ``nvram.txt``
+1. Run the `Export.bat` script to export NVRAM setting values to `nvram.txt`
 
-2. Depending on the type of variable, move the ``*`` to the desired option or change the value
+2. Depending on the type of variable, move the `*` to the desired option or change the value
 
-3. Run the ``Import.bat`` script to write the configuration in ``nvram.txt`` to NVRAM
+3. Run the `Import.bat` script to write the configuration in `nvram.txt` to NVRAM
 
 ## Solutions for various error messages
 
-To determine the error message, a ``log-file.txt`` is generated while running either ``Export.bat`` or ``Import.bat``, containing the output messages. The solutions for error messages can be found below.
+To determine the error message, a `log-file.txt` is generated while running either `Export.bat` or `Import.bat`, containing the output messages. The solutions for error messages can be found below.
 
 The error codes can be divided into 3 categories:
 
@@ -30,12 +30,12 @@ The error codes can be divided into 3 categories:
 
 This error occurs:
 
-1. When the drivers (originally named ``amifldrv64.sys`` and ``amigendrv64.sys``) is not in the same folder where ``SCEWIN_64.exe`` is located
+1. When the drivers (originally named `amifldrv64.sys` and `amigendrv64.sys`) is not in the same folder where `SCEWIN_64.exe` is located
 2. The command wasn't run with admin privileges
 
 To fix this error:
 
-1. Be sure that the folder contains both ``amifldrv64.sys`` and ``amigendrv64.sys``
+1. Be sure that the folder contains both `amifldrv64.sys` and `amigendrv64.sys`
 2. Be sure to run CMD with admin privileges
 
 ### ERROR:57 - Parsing CMD Line Arguments | ERROR:57 - Opening NVRAM Script File
@@ -74,14 +74,14 @@ This error occurs:
         systeminfo | findstr /I /C:BIOS
         ```
 
-2. The ``SmiVariable`` is absent or outdated
+2. The `SmiVariable` is absent or outdated
 
     - Verify with [UEFITool](https://github.com/LongSoft/UEFITool) whether the module is absent or not
 
         - If it's absent, you can try [inserting](https://winraid.level1techs.com/t/guide-how-to-extract-insert-replace-efi-bios-modules-by-using-the-uefitool/32122) the module (obtain it from another BIOS, preferably from the same manufacturer)
         - If it's present, you can try [updating](https://winraid.level1techs.com/t/guide-how-to-extract-insert-replace-efi-bios-modules-by-using-the-uefitool/32122) the module (obtain it from another BIOS, preferably from the same manufacturer)
 
-3. When using an outdated version of SCEWIN (e.g. version ``5.03.1115``) as newer motherboards only work with newer versions
+3. When using an outdated version of SCEWIN (e.g. version `5.03.1115`) as newer motherboards only work with newer versions
 
 ### Platform identification failed
 
@@ -93,7 +93,7 @@ This error occurs:
 
 To fix this error:
 
-1. You may override this error with ``/d`` option as shown below
+1. You may override this error with `/d` option as shown below
 
     ```bat
     SCEWIN_64.exe /O /S nvram.txt /d
@@ -106,15 +106,15 @@ To fix this error:
 This error occurs:
 
 1. The variable to be updated is write-protected
-2. ``PCI Device`` has been disabled in Device Manager
+2. `PCI Device` has been disabled in Device Manager
 
 To fix this error:
 
-1. Enable ``PCI Device``s as follows:
+1. Enable `PCI Device`s as follows:
 
-    - Open Device Manager by typing ``devmgmt.msc`` in ``Win+R``
-    - Navigate to ``Other devices``
-    - Ensure that all ``PCI Device``s are enabled
+    - Open Device Manager by typing `devmgmt.msc` in `Win+R`
+    - Navigate to `Other devices`
+    - Ensure that all `PCI Device`s are enabled
 
 2. If you have an ASUS motherboard (Z790+, B760+, H770+) go [here](#asus)
 
@@ -135,7 +135,7 @@ This error occurs:
 
 This error occurs:
 
-1. When there is an error in the specified line number (indicated by the ``xxxx``)
+1. When there is an error in the specified line number (indicated by the `xxxx`)
 
 To fix this error:
 
@@ -147,14 +147,14 @@ These two errors are related.
 
 This error occurs:
 
-1. When there is no value specified for ``token`` in the NVRAM script file (no \"\*" next to either option). The line specified in the error message is the same as the line of the last option in the ``Setup question``, whose token we just searched for.
+1. When there is no value specified for `token` in the NVRAM script file (no \"\*" next to either option). The line specified in the error message is the same as the line of the last option in the `Setup question`, whose token we just searched for.
 
     - See [media/error-message-example.png](/media/error-message-example.png)
 
 To fix this error:
 
-1. Put a "*" next to the value that ``BIOS Default`` suggests
-2. You can use the ``/q`` option to suppress all warning messages as shown below. This warning message will not appear when importing, along with other (perhaps) useful ones
+1. Put a "*" next to the value that `BIOS Default` suggests
+2. You can use the `/q` option to suppress all warning messages as shown below. This warning message will not appear when importing, along with other (perhaps) useful ones
 
    ```bat
    SCEWIN_64.exe /I /S nvram.txt /q
@@ -171,7 +171,7 @@ This error occurs:
 
 To fix this error:
 
-1. You can use the ``/q`` option to suppress all warning messages. This warning message will not appear when importing, along with other (perhaps) useful ones
+1. You can use the `/q` option to suppress all warning messages. This warning message will not appear when importing, along with other (perhaps) useful ones
 
    ```bat
    SCEWIN_64.exe /I /S nvram.txt /q
@@ -183,8 +183,8 @@ To fix this error:
 
 If you have an ASUS motherboard (Z590+, B560+, H510+) follow the steps below.
 
-1. Go to ``Setup > Tool`` section of your BIOS
-2. Enable ``Publish HII Resources``
+1. Go to `Setup > Tool` section of your BIOS
+2. Enable `Publish HII Resources`
 
 This way HII data will be published to the driver in which, SCEWIN should work flawlessly.
 
@@ -192,17 +192,17 @@ This way HII data will be published to the driver in which, SCEWIN should work f
 
 This section is only required if you have a Z790+, B760+ motherboard. These motherboards require an additional workaround as they password protect the various runtime variables.
 
-After following the above-mentioned steps, you need to disable ``Password protection of Runtime Variables``. In order to do so, follow the steps below.
+After following the above-mentioned steps, you need to disable `Password protection of Runtime Variables`. In order to do so, follow the steps below.
 
-1. Go to ``Setup > Advanced > UEFI Variables Protection`` section of your BIOS
-2. Disable ``Password protection of Runtime Variables``
+1. Go to `Setup > Advanced > UEFI Variables Protection` section of your BIOS
+2. Disable `Password protection of Runtime Variables`
 
 ### ASRock
 
 If you have an ASRock motherboard (Z590+, B560+, H510+) follow the steps below. These motherboards require an additional workaround as they password protect the various runtime variables.
 
-1. Go to ``Setup > Advanced > UEFI Variables Protection`` section of your BIOS
-2. Disable ``Password protection of Runtime Variables``
+1. Go to `Setup > Advanced > UEFI Variables Protection` section of your BIOS
+2. Disable `Password protection of Runtime Variables`
 
 To access this setting, you need to mod your BIOS with [UEFI Editor](https://boringboredom.github.io/UEFI-Editor). ASRock's BIOS has 2 Advanced forms so you need to do a [Menu swap](https://github.com/BoringBoredom/UEFI-Editor#menu) in order to gain access to the setting.
 
