@@ -26,7 +26,7 @@ The error codes can be divided into 3 categories:
 
 ## Both
 
-### LoadDeviceDriver returned false | Error:1 Unable to load Driver | 10 - Error: Unable to load the driver
+### LoadDeviceDriver returned false | Unable to load Driver
 
 This error occurs:
 
@@ -62,7 +62,7 @@ To fix this error:
 1. If you have an ASUS motherboard go [here](#asus)
 2. I have not yet developed a solution for non-ASUS motherboards. It is currently being investigated
 
-### ERROR:4 - Retrieving HII Database | ERROR:4 -  BIOS not compatible | ERROR:82 - Retrieving HII Database | ERROR:82 -  BIOS not compatible
+### Retrieving HII Database | BIOS not compatible
 
 This error occurs:
 
@@ -141,7 +141,7 @@ To fix this error:
 
 1. Comment out the setting or resolve the error manually
 
-### Warning: Unmatched question... prompt: 'Setup Question', Token:' '
+### Warning: Unmatched question... prompt: \<Setup question\>, Token: \<token\>
 
 These two errors are related.
 
@@ -160,7 +160,7 @@ To fix this error:
    SCEWIN_64.exe /I /S nvram.txt /q
    ```
 
-### WARNING: Length of string for control '\<Setup Question\>' not updated as the value/defaults specified in the script file doesn't reach the minimum range (\<value\>)
+### WARNING: Length of string for control \<Setup Question\> not updated as the value/defaults specified in the script file doesn't reach the minimum range (\<value\>)
 
 This error occurs:
 
