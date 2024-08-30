@@ -96,7 +96,7 @@ To fix this error:
 1. You may override this error with `/d` option as shown below
 
     ```bat
-    SCEWIN_64.exe /O /S nvram.txt /d
+    SCEWIN_64.exe /o /s nvram.txt /d
     ```
 
 ## Import
@@ -157,7 +157,7 @@ To fix this error:
 2. You can use the `/q` option to suppress all warning messages as shown below. This warning message will not appear when importing, along with other (perhaps) useful ones
 
    ```bat
-   SCEWIN_64.exe /I /S nvram.txt /q
+   SCEWIN_64.exe /i /s nvram.txt /q
    ```
 
 ### WARNING: Length of string for control \<Setup Question\> not updated as the value/defaults specified in the script file doesn't reach the minimum range (\<value\>)
@@ -174,7 +174,7 @@ To fix this error:
 1. You can use the `/q` option to suppress all warning messages. This warning message will not appear when importing, along with other (perhaps) useful ones
 
    ```bat
-   SCEWIN_64.exe /I /S nvram.txt /q
+   SCEWIN_64.exe /i /s nvram.txt /q
    ```
 
 2. Don't bother with it and leave it as is

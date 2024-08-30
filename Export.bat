@@ -18,6 +18,6 @@ for %%a in ("amifldrv64.sys", "amigendrv64.sys") do (
     )
 )
 
-SCEWIN_64.exe /O /S nvram.txt 2> log-file.txt
+SCEWIN_64.exe /o /s nvram.txt 2> log-file.txt
 type log-file.txt
 pause
