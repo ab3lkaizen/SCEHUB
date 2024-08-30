@@ -14,10 +14,10 @@ for %%a in ("amifldrv64.sys", "amigendrv64.sys") do (
     if not exist "%%~a" (
         echo error: %%~a not found in the current directory
         pause
-        exit /b 1    
-    )    
+        exit /b 1
+    )
 )
 
-SCEWIN_64.exe /O /S nvram.txt /q 2> log-file.txt
+SCEWIN_64.exe /O /S nvram.txt 2> log-file.txt
 type log-file.txt
 pause
