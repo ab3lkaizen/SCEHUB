@@ -190,9 +190,9 @@ If you have an ASUS motherboard (Z590+, B560+, H510+) follow the steps below.
 
 This way HII data will be published to the driver in which, SCEWIN should work flawlessly.
 
-#### Z790+, B760+ Motherboards
+#### Z790+, B760+, H770+ Motherboards
 
-This section is only required if you have a Z790+, B760+ motherboard. These motherboards require an additional workaround as they password protect the various runtime variables.
+This section is only required if you have a Z790+, B760+, H770+ motherboard. These motherboards require an additional workaround as they password protect the various runtime variables.
 
 After following the above-mentioned steps, you need to disable `Password protection of Runtime Variables`. In order to do so, follow the steps below.
 
