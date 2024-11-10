@@ -61,7 +61,7 @@ This error occurs:
 
 To fix this error:
 
-1. If you have an ASUS motherboard go [here](#asus)
+1. If you have an ASUS motherboard (Z590+, B560+, H510+) go [here](#asus)
 2. I have not yet developed a solution for non-ASUS motherboards. It is currently being investigated
 
 ### Retrieving HII Database | BIOS not compatible
