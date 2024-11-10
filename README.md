@@ -120,7 +120,7 @@ To fix this error:
 
 2. If you have an ASUS motherboard (Z790+, B760+, H770+ | X670+, B650+, A620+) go [here](#asus)
 
-3. If you have an ASRock motherboard (Z590+, B560+, H510+) go [here](#asrock)
+3. If you have an ASRock motherboard (Z590+, B560+, H510+ | X670+, B650+, A620+) go [here](#asrock)
 
 4. I have not yet developed a solution regarding variable write-protection for non-ASUS/ASRock motherboards. It is currently being investigated
 
@@ -201,7 +201,7 @@ After following the above-mentioned steps, you need to disable `Password protect
 
 ### ASRock
 
-If you have an ASRock motherboard (Z590+, B560+, H510+) follow the steps below. These motherboards require an additional workaround as they password protect the various runtime variables.
+If you have an ASRock motherboard (Z590+, B560+, H510+ | X670+, B650+, A620+) follow the steps below. These motherboards require an additional workaround as they password protect the various runtime variables.
 
 1. Go to `Setup > Advanced > UEFI Variables Protection` section of your BIOS
 2. Disable `Password protection of Runtime Variables`
