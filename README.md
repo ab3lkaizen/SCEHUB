@@ -61,7 +61,7 @@ This error occurs:
 
 To fix this error:
 
-1. If you have an ASUS motherboard (Z590+, B560+, H510+) go [here](#asus)
+1. If you have an ASUS motherboard (Z590+, B560+, H510+ | X670+, B650+, A620+) go [here](#asus)
 2. I have not yet developed a solution for non-ASUS motherboards. It is currently being investigated
 
 ### Retrieving HII Database | BIOS not compatible
@@ -118,7 +118,7 @@ To fix this error:
     - Navigate to `Other devices`
     - Ensure that all `PCI Device`s are enabled
 
-2. If you have an ASUS motherboard (Z790+, B760+, H770+) go [here](#asus)
+2. If you have an ASUS motherboard (Z790+, B760+, H770+ | X670+, B650+, A620+) go [here](#asus)
 
 3. If you have an ASRock motherboard (Z590+, B560+, H510+) go [here](#asrock)
 
@@ -183,16 +183,16 @@ To fix this error:
 
 ### ASUS
 
-If you have an ASUS motherboard (Z590+, B560+, H510+) follow the steps below.
+If you have an ASUS motherboard (Z590+, B560+, H510+ | X670+, B650+, A620+) follow the steps below.
 
 1. Go to `Setup > Tool` section of your BIOS
 2. Enable `Publish HII Resources`
 
 This way HII data will be published to the driver in which, SCEWIN should work flawlessly.
 
-#### Z790+, B760+, H770+ Motherboards
+#### Z790+, B760+, H770+ | X670+, B650+, A620+ Motherboards
 
-This section is only required if you have a Z790+, B760+, H770+ motherboard. These motherboards require an additional workaround as they password protect the various runtime variables.
+This section is only required if you have a Z790+, B760+, H770+ | X670+, B650+, A620+ motherboard. These motherboards require an additional workaround as they password protect the various runtime variables.
 
 After following the above-mentioned steps, you need to disable `Password protection of Runtime Variables`. In order to do so, follow the steps below.
 
